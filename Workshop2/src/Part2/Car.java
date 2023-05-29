@@ -26,6 +26,7 @@ public class Car {
         }
         else {
             System.out.println("Invalid");
+            this.enginePower = 0;
         }
         this.convertible = convertible;
         this.parkingBrake = parkingBrake;
@@ -36,7 +37,13 @@ public class Car {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        String regex = "^\\w+$";
+        if(!color.matches(regex)) {
+            this.color = "No color";
+        }
+        else {
+            this.color = color;
+        }
     }
 
     public int getEnginePower() {
@@ -80,7 +87,7 @@ public class Car {
         try {
             String tmp = this.color.substring(0, 1).toUpperCase() + this.color.substring(1).toLowerCase();
             System.out.println("Color: " + tmp);
-        } catch (Exception e) {
+        } catch (NullPointerException strE){
             System.out.println(this.color);
         }finally {
             if(this.enginePower > 0) {
