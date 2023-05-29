@@ -25,7 +25,7 @@ public class Main {
         
         Car c2 = new Car("red", -100, true, true);
         c2.pressAcceleratorButton();
-        c2.setColor("black");
+        c2.setColor("");
         System.out.println("Color of c2:" + c2.getColor());
         c2.output();
     }
