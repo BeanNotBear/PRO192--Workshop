@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    public static int getChoice(Object[] options) throws Exception{
+    public static int getChoice(Object[] options) throws Exception {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < options.length; i++) {
             System.out.println((i + 1) + " - " + options[i]);
@@ -24,16 +24,16 @@ public class Menu {
             choice = Integer.parseInt(sc.nextLine());
             checkChoice(choice, options.length);
         } catch (NumberFormatException e) {
-            System.out.println("Your choice must be an integer.");
-        } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Your choice must be an integer number.");
+        } catch (choiceException ce) {
+            System.out.println(ce.getMessage());
         }
         return choice;
     }
 
-    private static void checkChoice(int choice, int numOfOptions) {
+    private static void checkChoice(int choice, int numOfOptions) throws Exception{
         if (choice < 1 || choice > numOfOptions) {
-            throw new IllegalArgumentException("Your choice must be a number between 1 and " + numOfOptions + ".");
+            throw new choiceException("Your choice must be a number between 1 and " + numOfOptions + ".");
         }
     }
 }
