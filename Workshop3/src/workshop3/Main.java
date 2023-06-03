@@ -13,46 +13,50 @@ public class Main {
 
     /**
      * @param args the command line arguments
-     * @throws java.lang.Exception
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // TODO code application logic here
         String[] options = {"Create a Vase", "Create a Statue", "Create a Painting", "Display the item", "Quit the program"};
         Item item = null;
         int choice = 0;
         boolean flag = true;
         do {
-            choice = Menu.getChoice(options);
-            switch (choice) {
-                case 1:
-                    item = new Vase();
-                    ((Vase) item).inputVase();
-                    break;
-                case 2:
-                    item = new Statue();
-                    ((Statue) item).inputStatue();
-                    break;
-                case 3:
-                    item = new Painting();
-                    ((Painting) item).inputPainting();
-                    break;
-                case 4:
-                    if (item != null) {
-                        if (item instanceof Vase) {
-                            ((Vase) item).outputVase();
-                        } else if (item instanceof Statue) {
-                            ((Statue) item).outputStatue();
-                        } else if (item instanceof Painting) {
-                            ((Painting) item).outputPainting();
+            try {
+                choice = Menu.getChoice(options);
+                switch (choice) {
+                    case 1:
+                        item = new Vase();
+                        ((Vase) item).inputVase();
+                        break;
+                    case 2:
+                        item = new Statue();
+                        ((Statue) item).inputStatue();
+                        break;
+                    case 3:
+                        item = new Painting();
+                        ((Painting) item).inputPainting();
+                        break;
+                    case 4:
+                        if (item != null) {
+                            if (item instanceof Vase) {
+                                ((Vase) item).outputVase();
+                            } else if (item instanceof Statue) {
+                                ((Statue) item).outputStatue();
+                            } else if (item instanceof Painting) {
+                                ((Painting) item).outputPainting();
+                            }
+                        } else {
+                            System.out.println("You need create an object");
                         }
-                    } else {
-                        System.out.println("You need create an object");
-                    }
-                    break;
-                case 5:
-                    flag = false;
-                    break;
+                        break;
+                    case 5:
+                        flag = false;
+                        break;
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
+            System.out.println("=========================================================");
         } while (flag);
         System.out.println("Bye, see you!!!");
     }
