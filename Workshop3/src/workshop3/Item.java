@@ -41,8 +41,8 @@ public class Item {
     }
 
     public void output() {
-        System.out.println("The value: " + this.value);
-        System.out.println("The creator: " + this.creator);
+        System.out.println("Value: " + this.value);
+        System.out.println("Creator: " + this.creator);
     }
 
     public void input() {
@@ -51,13 +51,13 @@ public class Item {
             try {
                 System.out.print("Enter value: ");
                 this.value = Integer.parseInt(sc.nextLine());
-                System.out.print("Enter creator: ");
-                this.creator = sc.nextLine();
                 while (this.value < 0) {
                     System.out.println("Value can not be a negative number, pls enter again:");
                     System.out.print("Enter value: ");
                     this.value = Integer.parseInt(sc.nextLine());
                 }
+                System.out.print("Enter creator: ");
+                this.creator = sc.nextLine();
                 while (this.creator.trim().isEmpty()) {
                     System.out.println("Creator can not be a null, pls enter again:");
                     System.out.print("Enter creator: ");
