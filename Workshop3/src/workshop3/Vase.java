@@ -43,8 +43,8 @@ public class Vase extends Item {
 
     public void outputVase() {
         super.output();
-        System.out.println("The height: " + this.height);
-        System.out.println("The material: " + this.material);
+        System.out.println("Height: " + this.height);
+        System.out.println("Material: " + this.material);
     }
 
     public void inputVase() {
@@ -54,6 +54,10 @@ public class Vase extends Item {
             try {
                 System.out.print("Enter the height: ");
                 this.height = Integer.parseInt(sc.nextLine());
+                while(this.height < 0) {
+                    System.out.println("Height can not be a negative number, pls enter again:");
+                    this.height = Integer.parseInt(sc.nextLine());
+                }
                 System.out.print("Enter the material: ");
                 this.material = sc.nextLine();
                 break;
