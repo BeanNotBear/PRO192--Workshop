@@ -76,37 +76,58 @@ public class Painting extends Item {
             try {
                 System.out.print("Enter height: ");
                 this.height = Integer.parseInt(sc.nextLine());
-                while(this.height < 0) {
+                while (this.height < 0) {
                     System.out.println("Height can not be a negative number, pls enter again:");
+                    System.out.print("Enter height: ");
                     this.height = Integer.parseInt(sc.nextLine());
-                }
-                System.out.print("Enter width: ");
-                this.width = Integer.parseInt(sc.nextLine());
-                while(this.width < 0) {
-                    System.out.println("Width can not be a negative number, pls enter again:");
-                    this.width = Integer.parseInt(sc.nextLine());
-                }
-                String pattern = "^(true|false|True|False)$";
-                System.out.print("Is water colour? ");
-                String ans = sc.nextLine();
-                this.isWaterColour = Boolean.parseBoolean(ans);
-                while(!ans.matches(pattern)) {
-                    System.out.println("Incorrect datatype, pls enter true or false:");
-                    ans = sc.nextLine();
-                    this.isWaterColour = Boolean.parseBoolean(ans);
-                }
-                System.out.print("Is framed? ");
-                ans = sc.nextLine();
-                this.isFramed = Boolean.parseBoolean(ans);
-                while(!ans.matches(pattern)) {
-                    System.out.println("Incorrect datatype, pls enter true or false:");
-                    ans = sc.nextLine();
-                    this.isFramed = Boolean.parseBoolean(ans);
                 }
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Incorrect datatype, pls enter again");
             }
+        }
+
+        while (true) {
+            try {
+                System.out.print("Enter width: ");
+                this.width = Integer.parseInt(sc.nextLine());
+                while (this.width < 0) {
+                    System.out.println("Width can not be a negative number, pls enter again:");
+                    System.out.print("Enter width: ");
+                    this.width = Integer.parseInt(sc.nextLine());
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Incorrect datatype, pls enter again");
+            }
+        }
+
+        while (true) {
+            String pattern = "^(true|false|True|False)$";
+            System.out.print("Is water colour? ");
+            String ans1 = sc.nextLine();
+            this.isWaterColour = Boolean.parseBoolean(ans1);
+            while (!ans1.matches(pattern)) {
+                System.out.println("Incorrect datatype, pls enter true or false:");
+                System.out.print("Is water colour? ");
+                ans1 = sc.nextLine();
+                this.isWaterColour = Boolean.parseBoolean(ans1);
+            }
+            break;
+        }
+
+        while (true) {
+            System.out.print("Is framed? ");
+            String ans2 = sc.nextLine();
+            this.isFramed = Boolean.parseBoolean(ans2);
+            String pattern = "^(true|false|True|False)$";
+            while (!ans2.matches(pattern)) {
+                System.out.println("Incorrect datatype, pls enter true or false:");
+                System.out.print("Is framed? ");
+                ans2 = sc.nextLine();
+                this.isFramed = Boolean.parseBoolean(ans2);
+            }
+            break;
         }
     }
 }
