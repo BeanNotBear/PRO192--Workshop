@@ -54,8 +54,9 @@ public class Statue extends Item {
             try {
                 System.out.print("Enter the weight: ");
                 this.weight = Integer.parseInt(sc.nextLine());
-                while(this.weight < 0) {
+                while (this.weight < 0) {
                     System.out.println("Weight can not be a negative number, pls enter again:");
+                    System.out.print("Enter the weight: ");
                     this.weight = Integer.parseInt(sc.nextLine());
                 }
                 System.out.print("Enter the colour: ");
