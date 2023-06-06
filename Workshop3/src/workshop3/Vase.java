@@ -54,8 +54,9 @@ public class Vase extends Item {
             try {
                 System.out.print("Enter the height: ");
                 this.height = Integer.parseInt(sc.nextLine());
-                while(this.height < 0) {
+                while (this.height < 0) {
                     System.out.println("Height can not be a negative number, pls enter again:");
+                    System.out.print("Enter the height: ");
                     this.height = Integer.parseInt(sc.nextLine());
                 }
                 System.out.print("Enter the material: ");
