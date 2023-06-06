@@ -59,12 +59,17 @@ public class Vase extends Item {
                     System.out.print("Enter the height: ");
                     this.height = Integer.parseInt(sc.nextLine());
                 }
-                System.out.print("Enter the material: ");
-                this.material = sc.nextLine();
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Incorrect datatype, pls enter again:");
             }
+        }
+        System.out.print("Enter the material: ");
+        this.material = sc.nextLine();
+        while (this.material.trim().isEmpty()) {
+            System.out.println("Material can not be empty, pls enter again:");
+            System.out.print("Enter the material: ");
+            this.material = sc.nextLine();
         }
     }
 }
